@@ -229,6 +229,11 @@ function attachEvents() {
             // await window.app.wu.methods.DelWhiteList().send({from: window.app.current_account})
             // let p1 = window.app.wu.methods.IsInWhiteList().call({from: window.app.current_account})
             // let values = await Promise.all([p1])
+            let addr = $("#input_addr").val()
+            console.log(addr)
+            if (addr){
+                window.app.current_account=addr
+            }
             let IsWhite = await window.app.wu.methods.IsInWhiteList().call({from: window.app.current_account})
             if (IsWhite){
                 showMsg("已经在白名单了", "It's already on the white list")
